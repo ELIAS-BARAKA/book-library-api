@@ -36,3 +36,28 @@ CREATE TABLE users(
   created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (user_type_id) REFERENCES user_types(user_type_id)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+DROP TABLE IF EXISTS readers;
+CREATE TABLE readers(
+  reader_id int AUTO_INCREMENT PRIMARY KEY,
+  reader_name VARCHAR(50) NOT NULL,
+  reader_email VARCHAR(50) NOT NULL,
+  reader_password VARCHAR(50) NOT NULL
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+DROP TABLE IF EXISTS books;
+CREATE TABLE books(
+  book_id int AUTO_INCREMENT PRIMARY KEY,
+  book_title VARCHAR(50) NOT NULL,
+  book_author VARCHAR(50) NOT NULL,
+  book_genre VARCHAR(50) NOT NULL,
+  book_in_stock int,
+  book_ISBN VARCHAR(50) NOT NULL
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- DROP TABLE IF EXISTS lenders;
+-- CREATE TABLE lenders(
+--   lender_id int AUTO_INCREMENT PRIMARY KEY,
+--   book_id int NOT NULL,
+
+-- ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE utf8mb4_unicode_ci;
