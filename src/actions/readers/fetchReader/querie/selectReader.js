@@ -1,15 +1,13 @@
 const { submitQuery, camelKeys, getFirst } = require("~root/lib/database");
 
-const selectReader = ({ email, password }) => submitQuery`
+const selectReader = ({ email }) => submitQuery`
     SELECT 
         reader_id,
         reader_name,
-        reader_email,
-        reader_password
+        reader_email
     FROM readers
     LEFT JOIN reader_types ON readers.reader_type_id = reader_types.reader_type_id
-    WHERE email = ${email}
-    AND password = SHA2(CONCAT(${password}, ${process.env.PASSWORD_SALT}), 224);
+    WHERE email = ${email};
 `;
 
 module.exports = getFirst(camelKeys(selectReader));

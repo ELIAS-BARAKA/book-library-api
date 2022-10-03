@@ -41,8 +41,8 @@ DROP TABLE IF EXISTS readers;
 CREATE TABLE readers(
   reader_id int AUTO_INCREMENT PRIMARY KEY,
   reader_name VARCHAR(50) NOT NULL,
-  reader_email VARCHAR(50) NOT NULL,
-  reader_password VARCHAR(50) NOT NULL
+  reader_email VARCHAR(50) NOT NULL
+  -- reader_password VARCHAR(50) NOT NULL
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 DROP TABLE IF EXISTS books;
